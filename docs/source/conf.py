@@ -45,8 +45,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Imagination'
-copyright = u'2012-{}, Juti Noppornpitak'.format(datetime.datetime.now().strftime('%Y'))
+project = 'Imagination'
+copyright = '2012-{}, Juti Noppornpitak'.format(datetime.datetime.now().strftime('%Y'))
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -188,8 +188,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Imagination.tex', u'Imagination Documentation',
-   u'Juti Noppornpitak', 'manual'),
+  ('index', 'Imagination.tex', 'Imagination Documentation',
+   'Juti Noppornpitak', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -218,8 +218,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'imagination', u'Imagination Documentation',
-     [u'Juti Noppornpitak'], 1)
+    ('index', 'imagination', 'Imagination Documentation',
+     ['Juti Noppornpitak'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -232,8 +232,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Imagination', u'Imagination Documentation',
-   u'Juti Noppornpitak', 'Imagination', 'One line description of project.',
+  ('index', 'Imagination', 'Imagination Documentation',
+   'Juti Noppornpitak', 'Imagination', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -250,10 +250,10 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'Imagination'
-epub_author = u'Juti Noppornpitak'
-epub_publisher = u'Juti Noppornpitak'
-epub_copyright = u'2012, Juti Noppornpitak'
+epub_title = 'Imagination'
+epub_author = 'Juti Noppornpitak'
+epub_publisher = 'Juti Noppornpitak'
+epub_copyright = '2012, Juti Noppornpitak'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

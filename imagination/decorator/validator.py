@@ -35,6 +35,7 @@ except ImportError as e:
 import sys
 
 from imagination.exception import MisplacedValidatorError
+import collections
 
 _disable_decorator = 'sphinx' in sys.modules
 
@@ -89,7 +90,7 @@ def restrict_type(*restricted_list, **restricted_map):
         if _disable_decorator:
             return reference
 
-        if isinstance(reference, type) or not callable(reference):
+        if isinstance(reference, type) or not isinstance(reference, collections.Callable):
             raise MisplacedValidatorError(
                 'Can only be used with callable objects, e.g., functions, class methods, instance methods and static methods.'
             )
@@ -164,7 +165,7 @@ def __assert_type(instance, expected_type):
     # If the callable is expected, validate if it is callable.
 
     if callable_expected:
-        return callable(instance)
+        return isinstance(instance, collections.Callable)
 
     # Now, validate the type of INSTANCE.
     if expected_type in list_types:

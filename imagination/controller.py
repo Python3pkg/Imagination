@@ -148,7 +148,7 @@ class Controller(object):
 
         # First, consider the keyword ones.
         # FIXME This is for backward-compatibility and the whole loop will be removed in version 3.
-        for key, definition in given_params['items'].items():
+        for key, definition in list(given_params['items'].items()):
             # Handle a dynamic parameter.
             if key not in fixed_parameter_map:
                 self.__logger.debug('{}: Keyword Param ({} -> {}): Considered as extra'.format(self.__metadata.id, key, definition))
@@ -227,7 +227,7 @@ class Controller(object):
 
         # When NOT all fixed parameters are defined, all additional positional parameters will be disregarded.
         if undefined_fixed_parameter_count > 0:
-            kwargs = {key: metadata.value for key, metadata in fixed_parameter_map.items() if metadata.defined}
+            kwargs = {key: metadata.value for key, metadata in list(fixed_parameter_map.items()) if metadata.defined}
             kwargs.update(keywoard_parameters)
 
             logging.info('Not all fixed parameters defined. All positional parameters will be ignored.')
@@ -266,7 +266,7 @@ class Controller(object):
             except TypeError:
                 raise ValueInterpretationError('Entity "{}": Failed to interpret {} (positional)'.format(self.__metadata.id, item))
 
-        for key, value in params.items():
+        for key, value in list(params.items()):
             try:
                 items[key] = self.__transformer_cast(value)
             except TypeError:

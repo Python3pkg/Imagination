@@ -57,7 +57,7 @@ class Imagination(object):
             raise CoreOnLockDownError()
 
         with exclusive_lock(self.__internal_lock):
-            for entity_id, meta_container in meta_container_map.items():
+            for entity_id, meta_container in list(meta_container_map.items()):
                 self.set_metadata(entity_id, meta_container)
 
     def contain(self, entity_id : str):
@@ -175,7 +175,7 @@ class Imagination(object):
 
         sorted_sequence = [
             (dependency_id, score)
-            for dependency_id, score in scoreboard.items()
+            for dependency_id, score in list(scoreboard.items())
         ]
 
         sorted_sequence.sort(key = lambda step: step[1])
@@ -189,7 +189,7 @@ class Imagination(object):
         interception_graph   = self.__interception_graph
         unique_interceptions = list()
 
-        for entity_id, controller in self.__controller_map.items():
+        for entity_id, controller in list(self.__controller_map.items()):
             metadata = controller.metadata
 
             for interception in metadata.interceptions:

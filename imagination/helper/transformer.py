@@ -131,7 +131,7 @@ class Transformer(object):
 
             # At theis point, assume that actual_data is ParameterCollection.
 
-            for key, value in actual_data.items():
+            for key, value in list(actual_data.items()):
                 kv_map[key] = self.cast(value)
 
             return kv_map

@@ -48,7 +48,7 @@ class ParameterCollection(PrintableMixin):
     def all(self):
         return {
             'sequence': [i for i in self.sequence()],
-            'items': {k: v for k, v in self.items()},
+            'items': {k: v for k, v in list(self.items())},
         }
 
     def sequence(self):
@@ -56,7 +56,7 @@ class ParameterCollection(PrintableMixin):
             yield item
 
     def items(self):
-        for k, v in self.__map.items():
+        for k, v in list(self.__map.items()):
             yield k, v
 
     def add(self, meta_parameter : DataDefinition, name = None):

@@ -26,7 +26,7 @@ def extract_dependency_ids_from_parameters(collection : ParameterCollection):
 
         container_ids.add(item.definition)
 
-    for k, item in collection.items():
+    for k, item in list(collection.items()):
         if type(item.definition) is ParameterCollection:
             container_ids.update(
                 extract_dependency_ids_from_parameters(item.definition)

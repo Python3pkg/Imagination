@@ -5,6 +5,7 @@ import pprint
 import sys
 
 import imagination
+import collections
 
 _working_dir        = os.getcwd()
 _module_path        = imagination.__path__[0]
@@ -58,7 +59,7 @@ class PrintableMixin(object):
 
             prop = getattr(self, prop_name)
 
-            if callable(prop):
+            if isinstance(prop, collections.Callable):
                 continue
 
             exported.append('{}="{}"'.format(prop_name, prop))
@@ -78,7 +79,7 @@ def dump_meta_container(metadata):
         'dependencies' : metadata.dependencies,
         'params'       : {
             'sequence' : [i for i in params.sequence()],
-            'items'    : {k: v for k, v in params.items()},
+            'items'    : {k: v for k, v in list(params.items())},
         },
     }
 

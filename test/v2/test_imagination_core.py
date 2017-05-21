@@ -5,6 +5,7 @@ from imagination.wrapper import Wrapper
 
 from dummy.lazy_action   import Alpha, Beta
 from dummy.factorization import Manager, Worker
+import collections
 
 if sys.version_info >= (3, 3):
     from imagination.debug          import dump_meta_container
@@ -67,7 +68,7 @@ class FunctionalTest(unittest.TestCase):
     def test_get_lambda(self):
         func_foo = self.core.get('func_foo')
 
-        self.assertTrue(callable(func_foo))
+        self.assertTrue(isinstance(func_foo, collections.Callable))
 
         self.assertTrue(self.core.get_info('func_foo').activated())
         self.assertFalse(self.core.get_info('alpha').activated())
